@@ -352,212 +352,8 @@ const convert = (square) => {
     }
 }
 
-
-// top left corner scenerios
-const topLeftPlays = () => {
-    if (firstMove[0] == '0') {
-        if (move == 1) { // 2nd move
-            if (board[0] != undefined) {
-                convert("midmid");
-                console.log('line')
-            }
-        }
-        else if (firstMove[0] == '0' && firstMove[1] == '1') { // player chooses topleft for 1st move and topmid for 2nd move
-            if (move == 3) { //4th move
-                if (board[0] != undefined && board[1] != undefined) {
-                    convert("topright");
-                    console.log('line')
-                } else if (board[0] != undefined && board[2] != undefined) {
-                    convert("topmid");
-                    console.log('line')
-                }
-            }
-            else if (move == 5) { // 6th move
-                if (board[0] != undefined && board[1] != undefined && board[6] == undefined && board[0] == board[1]) {
-                    convert("botleft"); // cpu wins if player doesn't move here
-                    console.log('line')
-                } else if (board[0] != undefined && board[1] != undefined) {
-                    convert("midleft");
-                    console.log('line')
-                }
-            }
-            else if (move == 7) { // 8th move
-                if (board[0] != undefined && board[1] != undefined && board[5] == undefined) {
-                    convert("midright"); // cpu wins if player doesn't move here
-                    console.log('line')
-                } else if (board[0] != undefined && board[1] != undefined && board[5]) {
-                    convert("botmid");
-                    console.log('line')
-                }
-            }
-        }
-        else if (firstMove[0] == '0' && firstMove[1] == '2') { // player chooses topleft for 1st move and topright for 2nd move
-            if (move == 3) { //4th move
-                if (board[0] != undefined && board[2] != undefined) {
-                    convert("topmid");
-                    console.log('line')
-                }
-            }
-            else if (move == 5) { // 6th move
-                if (board[0] != undefined && board[2] != undefined && board[7] == undefined) {
-                    convert("botmid"); // cpu wins if player doesn't move here
-                    console.log('line')
-                } else if (board[0] != undefined && board[2] != undefined && board[7] != undefined) {
-                    convert("midleft");
-                    console.log('line')
-                }
-            }
-            else if (move == 7) { // 8th move
-                if (board[0] != undefined && board[2] != undefined && board[7] != undefined && board[5] == undefined) {
-                    convert("midright"); // cpu wins if player doesn't move here
-                    console.log('line')
-                } else if (board[0] != undefined && board[2] != undefined && board[7] != undefined && board[5] != undefined) {
-                    convert("botright"); // cpu wins if player doesn't move here
-                    console.log('line')
-                }
-            }
-        }
-        else if (firstMove[0] == '0' && firstMove[1] == '3') { // player chooses topleft for 1st move and midleft for 2nd move
-            if (move == 3) { //4th move
-                if (board[0] != undefined && board[3] != undefined) {
-                    convert("botleft");
-                    console.log('line');
-                }
-            }
-            else if (move == 5) { // 6th move
-                if (board[0] != undefined && board[3] != undefined && board[2] == undefined) {
-                    convert('topright'); // cpu wins if player doesn't move here
-                    console.log('line')
-                } else if (board[0] != undefined && board[3] != undefined && board[2] != undefined) {
-                    convert('topmid');
-                    console.log('line');
-                }
-            }
-            else if (move == 7) { // 8th move
-                if (board[0] != undefined && board[3] != undefined && board[2] != undefined && board[7] == undefined) {
-                    convert('botmid'); // cpu wins if player doesn't move here
-                    console.log('line')
-                } else if (board[0] != undefined && board[3] != undefined && board[2] != undefined && board[7] != undefined) {
-                    convert('botright');
-                    console.log('line');
-                }
-            }
-        }
-        else if (firstMove[0] == '0' && firstMove[1] == '5') { // player chooses topleft for 1st move and midright for 2nd move
-            if (move == 3) { //4th move
-                if (board[0] != undefined && board[5] != undefined) {
-                    convert("botright");
-                    console.log('line');
-                }
-            }
-            else if (move == 5) { // 6th move
-                if (board[0] != undefined && board[5] != undefined && board[2] != undefined) {
-                    convert('topmid') // cpu wins if player doesn't move here
-                    console.log('line')
-                } else if (board[0] != undefined && board[5] != undefined && board[1] != undefined) {
-                    convert('topright');
-                    console.log('line');
-                }
-            }
-            else if (move == 7) { // 8th move
-                if (board[0] != undefined && board[5] != undefined && board[2] != undefined && board[7] == undefined && board[5] == board[2]) {
-                    convert('botmid')
-                    console.log('line')
-                } else if (board[0] != undefined && board[5] != undefined && board[2] != undefined && board[7] != undefined) {
-                    convert('botleft')
-                    console.log('line');
-                } else if (board[0] != undefined && board[5] != undefined && board[2] != undefined && board[6] == undefined) {
-                    convert('botleft') // cpu wins if player doesn't move here
-                    console.log('line');
-                } else if (board[0] != undefined && board[5] != undefined && board[2] != undefined && board[6] != undefined) {
-                    convert('midleft')
-                    console.log('line');
-                }
-            }
-        }
-        else if (firstMove[0] == '0' && firstMove[1] == '6') { // player chooses topleft for 1st move and botleft for 2nd move
-            if (move == 3) { //4th move
-                if (board[0] != undefined && board[6] != undefined) {
-                    convert('midleft')
-                    console.log('line');
-                }
-            }
-            else if (move == 5) { // 6th move
-                if (board[0] != undefined && board[6] != undefined && board[5] == undefined) {
-                    convert('midright'); // cpu wins if player doesn't move here
-                    console.log('line');
-                } else if (board[0] != undefined && board[6] != undefined && board[5] != undefined) {
-                    convert('topmid')
-                    console.log('line');
-                }
-            }
-            else if (move == 7) { // 8th move
-                if (board[0] != undefined && board[6] != undefined && board[5] != undefined && board[7] == undefined) {
-                    convert('botmid')
-                    console.log('line')
-                } else if (board[0] != undefined && board[6] != undefined && board[5] != undefined && board[7] != undefined) {
-                    convert('topright')
-                    console.log('line');
-                }
-            }
-        }
-        else if (firstMove[0] == '0' && firstMove[1] == '7') { // player chooses topleft for 1st move and botmid for 2nd move
-            if (move == 3) { //4th move
-                if (board[0] != undefined && board[7] != undefined) {
-                    convert('midright')
-                    console.log('line');
-                }
-            }
-            else if (move == 5) { // 6th move
-                if (board[0] != undefined && board[7] != undefined && board[3] == undefined) {
-                    convert('midleft') // cpu wins if player doesn't choose
-                    console.log('line')
-                } else if (board[0] != undefined && board[7] != undefined && board[3] != undefined) {
-                    convert('botleft')
-                    console.log('line');
-                }
-            }
-            else if (move == 7) { // 8th move
-                if (board[0] != undefined && board[7] != undefined && board[5] != undefined && board[2] == undefined) {
-                    convert('topright') // cpu wins if player doesn't choose
-                    console.log('line')
-                } else if (board[0] != undefined && board[7] != undefined && board[5] != undefined && board[2] != undefined) {
-                    convert('topmid')
-                    console.log('line');
-                }
-            }
-        }
-        else if (firstMove[0] == '0' && firstMove[1] == '8') { // player chooses topleft for 1st move and botright for 2nd move
-            if (move == 3) { //4th move
-                if (board[0] != undefined && board[8] != undefined) {
-                    convert('topmid')
-                    console.log('line');
-                }
-            }
-            else if (move == 5) { // 6th move
-                if (board[0] != undefined && board[8] != undefined && board[7] == undefined) {
-                    convert('botmid')
-                    console.log('line')
-                } else if (board[0] != undefined && board[8] != undefined && board[7] != undefined) {
-                    convert('botleft')
-                    console.log('line');
-                }
-            }
-            else if (move == 7) { // 8th move
-                if (board[0] != undefined && board[8] != undefined && board[7] != undefined && board[2] == undefined) {
-                    convert('topright')
-                    console.log('line')
-                } else if (board[0] != undefined && board[8] != undefined && board[7] != undefined && board[2] != undefined) {
-                    convert('midright')
-                    console.log('line');
-                }
-            }
-        }
-    }
-}
-
 const tRIC = (stringBoard) => { // converts to each corner moves, topleft or topright or botleft or botright
-    if (firstMove[0] == 0) { // topleft first move
+    if (firstMove[0] == 0 || firstMove[0] == 1) { // topleft first move or topmid first move
         if (stringBoard.length == 8) {
             let num = stringBoard[6];
             console.log(num);
@@ -815,7 +611,7 @@ const tRIC = (stringBoard) => { // converts to each corner moves, topleft or top
 const converttRIC = (stringBoard) => {
     let num = stringBoard[6];
     console.log(num);
-    if (firstMove[0] == '0') { // topleft start
+    if (firstMove[0] == '0' || firstMove[0] == '1') { // topleft start or topmid start
         if (num == 0) {
             console.log('convert 0 to 0');
             convert("topleft");
@@ -1140,10 +936,66 @@ const topRightPlaysConvert = () => {
     }
 }
 
-const computerMove = () => {
-    // player chooses topleft for 1st move
-    // topLeftPlays();
-    topRightPlaysConvert();
-    // player chooses topright for 1st move
 
+const sideMid = () => {
+    if (firstMove[0] == tRIC('1')) {
+        if (move == 1) { // 2nd move
+            if (tRIC('board[1]') != undefined) {
+                converttRIC("board[4]");
+                console.log('line')
+            }
+        }
+        else if (firstMove[0] == tRIC('1') && firstMove[1] == tRIC('0')) { // player chooses topmid for 1st move and topleft for 2nd move
+            if (move == 3) { //4th move
+                if (tRIC('board[1]') != undefined && tRIC('board[0]') != undefined) {
+                    converttRIC('board[2]');
+                    console.log('line')
+                }
+            } else if (move == 5) {
+                if (tRIC('board[1]') != undefined && tRIC('board[0]') != undefined && tRIC('board[6]') == undefined) {
+                    converttRIC('board[6]');
+                    console.log('line');
+                } else if (tRIC('board[1]') != undefined && tRIC('board[0]') != undefined && tRIC('board[6]') != undefined) {
+                    converttRIC('board[3]');
+                    console.log('line');
+                }
+            } else if (move == 7) {
+                if (tRIC('board[1]') != undefined && tRIC('board[0]') != undefined && tRIC('board[6]') != undefined && tRIC('board[5]') == undefined) {
+                    converttRIC('board[5]');
+                    console.log('line');
+                } else if (tRIC('board[1]') != undefined && tRIC('board[0]') != undefined && tRIC('board[6]') != undefined && tRIC('board[5]') != undefined) {
+                    converttRIC('board[8]');
+                    console.log('line');
+                }
+            }
+        } else if (firstMove[0] == tRIC('1') && firstMove[1] == tRIC('2')) { // player chooses topmid for 1st move and topright for 2nd move
+            if (move == 3) { //4th move
+                if (tRIC('board[1]') != undefined && tRIC('board[2]') != undefined) {
+                    converttRIC('board[0]');
+                    console.log('line')
+                }
+            } else if (move == 5) {
+                if (tRIC('board[1]') != undefined && tRIC('board[2]') != undefined && tRIC('board[8]') == undefined) {
+                    converttRIC('board[8]');
+                    console.log('line')
+                } else if (tRIC('board[1]') != undefined && tRIC('board[2]') != undefined && tRIC('board[8]') != undefined) {
+                    converttRIC('board[5]');
+                    console.log('line')
+                }
+            } else if (move == 7) {
+                if (tRIC('board[1]') != undefined && tRIC('board[2]') != undefined && tRIC('board[8]') != undefined && tRIC('board[3]') == undefined) {
+                    converttRIC('board[3]');
+                    console.log('line')
+                } else if (tRIC('board[1]') != undefined && tRIC('board[2]') != undefined && tRIC('board[8]') != undefined && tRIC('board[3]') != undefined) {
+                    converttRIC('board[6]');
+                    console.log('line')
+                }
+            }
+        }
+    }
+}
+
+const computerMove = () => {
+    topRightPlaysConvert(); // corners
+    sideMid(); // sidemiddle
 }
