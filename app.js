@@ -991,6 +991,121 @@ const sideMid = () => {
                     console.log('line')
                 }
             }
+        } else if (firstMove[0] == tRIC('1') && firstMove[1] == tRIC('3')) { // player chooses topmid for 1st move and midleft for 2nd move
+            if (move == 3) { //4th move
+                if (tRIC('board[1]') != undefined && tRIC('board[3]') != undefined) {
+                    converttRIC('board[0]');
+                    console.log('line')
+                }
+            } else if (move == 5) {
+                if (tRIC('board[1]') != undefined && tRIC('board[3]') != undefined && tRIC('board[8]') == undefined) {
+                    converttRIC('board[8]');
+                    console.log('line')
+                } else if (tRIC('board[1]') != undefined && tRIC('board[3]') != undefined && tRIC('board[8]') != undefined) {
+                    converttRIC('board[2]');
+                    console.log('line')
+                }
+            } else if (move == 7) {
+                if (tRIC('board[1]') != undefined && tRIC('board[3]') != undefined && tRIC('board[8]') != undefined && tRIC('board[6]') == undefined) {
+                    converttRIC('board[6]');
+                    console.log('line')
+                } else if (tRIC('board[1]') != undefined && tRIC('board[2]') != undefined && tRIC('board[8]') != undefined && tRIC('board[6]') != undefined) {
+                    converttRIC('board[7]');
+                    console.log('line')
+                }
+            }
+        } else if (firstMove[0] == tRIC('1') && firstMove[1] == tRIC('5')) { // player chooses topmid for 1st move and midright for 2nd move
+            if (move == 3) { //4th move
+                if (tRIC('board[1]') != undefined && tRIC('board[5]') != undefined) {
+                    converttRIC('board[2]');
+                    console.log('line')
+                }
+            } else if (move == 5) {
+                if (tRIC('board[1]') != undefined && tRIC('board[5]') != undefined && tRIC('board[6]') == undefined) {
+                    converttRIC('board[6]');
+                    console.log('line')
+                } else if (tRIC('board[1]') != undefined && tRIC('board[5]') != undefined && tRIC('board[6]') != undefined) {
+                    converttRIC('board[0]');
+                    console.log('line')
+                }
+            } else if (move == 7) {
+                if (tRIC('board[1]') != undefined && tRIC('board[5]') != undefined && tRIC('board[6]') != undefined && tRIC('board[8]') == undefined) {
+                    converttRIC('board[8]');
+                    console.log('line')
+                } else if (tRIC('board[1]') != undefined && tRIC('board[5]') != undefined && tRIC('board[6]') != undefined && tRIC('board[8]') != undefined) {
+                    converttRIC('board[7]');
+                    console.log('line')
+                }
+            }
+        } else if (firstMove[0] == tRIC('1') && firstMove[1] == tRIC('6')) { // player chooses topmid for 1st move and botleft for 2nd move
+            if (move == 3) { //4th move
+                if (tRIC('board[1]') != undefined && tRIC('board[6]') != undefined) {
+                    converttRIC('board[0]');
+                    console.log('line')
+                }
+            } else if (move == 5) {
+                if (tRIC('board[1]') != undefined && tRIC('board[6]') != undefined && tRIC('board[8]') == undefined) {
+                    converttRIC('board[8]');
+                    console.log('line')
+                } else if (tRIC('board[1]') != undefined && tRIC('board[6]') != undefined && tRIC('board[8]') != undefined) {
+                    converttRIC('board[7]');
+                    console.log('line')
+                }
+            } else if (move == 7) {
+                if (tRIC('board[1]') != undefined && tRIC('board[6]') != undefined && tRIC('board[8]') != undefined && tRIC('board[2]') == undefined) {
+                    converttRIC('board[2]');
+                    console.log('line')
+                } else if (tRIC('board[1]') != undefined && tRIC('board[6]') != undefined && tRIC('board[8]') != undefined && tRIC('board[2]') != undefined) {
+                    converttRIC('board[5]');
+                    console.log('line')
+                }
+            }
+        } else if (firstMove[0] == tRIC('1') && firstMove[1] == tRIC('7')) { // player chooses topmid for 1st move and botmid for 2nd move
+            if (move == 3) { //4th move
+                if (tRIC('board[1]') != undefined && tRIC('board[7]') != undefined) {
+                    converttRIC('board[6]');
+                    console.log('line')
+                }
+            } else if (move == 5) {
+                if (tRIC('board[1]') != undefined && tRIC('board[7]') != undefined && tRIC('board[2]') == undefined) {
+                    converttRIC('board[2]');
+                    console.log('line')
+                } else if (tRIC('board[1]') != undefined && tRIC('board[7]') != undefined && tRIC('board[2]') != undefined) {
+                    converttRIC('board[0]');
+                    console.log('line')
+                }
+            } else if (move == 7) {
+                if (tRIC('board[1]') != undefined && tRIC('board[7]') != undefined && tRIC('board[2]') != undefined && tRIC('board[3]') == undefined) {
+                    converttRIC('board[3]');
+                    console.log('line')
+                } else if (tRIC('board[1]') != undefined && tRIC('board[7]') != undefined && tRIC('board[2]') != undefined && tRIC('board[3]') != undefined) {
+                    converttRIC('board[8]');
+                    console.log('line')
+                }
+            }
+        } else if (firstMove[0] == tRIC('1') && firstMove[1] == tRIC('8')) { // player chooses topmid for 1st move and botright for 2nd move
+            if (move == 3) { //4th move
+                if (tRIC('board[1]') != undefined && tRIC('board[8]') != undefined) {
+                    converttRIC('board[2]');
+                    console.log('line')
+                }
+            } else if (move == 5) {
+                if (tRIC('board[1]') != undefined && tRIC('board[8]') != undefined && tRIC('board[6]') == undefined) {
+                    converttRIC('board[6]');
+                    console.log('line')
+                } else if (tRIC('board[1]') != undefined && tRIC('board[8]') != undefined && tRIC('board[6]') != undefined) {
+                    converttRIC('board[7]');
+                    console.log('line')
+                }
+            } else if (move == 7) {
+                if (tRIC('board[1]') != undefined && tRIC('board[8]') != undefined && tRIC('board[6]') != undefined && tRIC('board[0]') == undefined) {
+                    converttRIC('board[0]');
+                    console.log('line')
+                } else if (tRIC('board[1]') != undefined && tRIC('board[8]') != undefined && tRIC('board[6]') != undefined && tRIC('board[0]') != undefined) {
+                    converttRIC('board[3]');
+                    console.log('line')
+                }
+            }
         }
     }
 }
