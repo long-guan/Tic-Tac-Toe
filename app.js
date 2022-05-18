@@ -1,4 +1,4 @@
-let move = 0; // starting piece defaults to "X"
+ let move = 0; // starting piece defaults to "X"
 let moveTracker = []; // used to see what piece X or O is next
 let board = [,,,,,,,,,]; // used to check 3 in a row
 let xWin = 0;
@@ -294,6 +294,7 @@ const computerBtnRemove = (index) => {
     btnArray[index].removeEventListener("click", playerMove);
 }
 
+//converts strings to a marked move on the board e.g. topleft will mark the upper left corner of the board with an 'O' or 'X'
 const convert = (square) => {
     if (square == "topleft") {
         computerBtnRemove(0);
@@ -352,8 +353,10 @@ const convert = (square) => {
     }
 }
 
-const tRIC = (stringBoard) => { // converts to each corner moves, topleft or topright or botleft or botright
-    if (firstMove[0] == 0 || firstMove[0] == 1) { // topleft first move or topmid first move
+// converts the standard set of programmed moves for the corners (topleft corner, topright corner, botleft corner) and the side middle (top mid, right mid, bot mid, left mid)
+const tRIC = (stringBoard) => {
+    // topleft first move or topmid first move. No conversion done
+    if (firstMove[0] == 0 || firstMove[0] == 1) {
         if (stringBoard.length == 8) {
             let num = stringBoard[6];
             console.log(num);
@@ -386,7 +389,7 @@ const tRIC = (stringBoard) => { // converts to each corner moves, topleft or top
                 return board[8];
             }
         }
-        else if (stringBoard.length == 1) {
+        else if (stringBoard.length == 1) { // conversion for the firstMove tracker
             if (stringBoard == 0) {
                 console.log('line');
                 return "0";
@@ -417,7 +420,8 @@ const tRIC = (stringBoard) => { // converts to each corner moves, topleft or top
             }
         }
     }
-    else if (firstMove[0] == 2) { // topright first move
+    // converts topleft corner to topright corner by mirroring the board (up-down mirror)
+    else if (firstMove[0] == 2) {
         if (stringBoard.length == 8) {
             let num = stringBoard[6];
             console.log(num);
@@ -480,7 +484,8 @@ const tRIC = (stringBoard) => { // converts to each corner moves, topleft or top
             }
         }
     }
-    else if (firstMove[0] == 6) { // botleft first move
+    // converts the topleft corner to botleft corner by mirroring the board (left to right mirror)
+    else if (firstMove[0] == 6) {
         if (stringBoard.length == 8) {
             let num = stringBoard[6];
             console.log(num);
@@ -543,7 +548,8 @@ const tRIC = (stringBoard) => { // converts to each corner moves, topleft or top
             }
         }
     }
-    else if (firstMove[0] == 8) { // botright first move
+    // converts topleft corner to botright corner by rotating clockwise by 180 degrees
+    else if (firstMove[0] == 8) {
         if (stringBoard.length == 8) {
             let num = stringBoard[6];
             console.log(num);
@@ -603,6 +609,198 @@ const tRIC = (stringBoard) => { // converts to each corner moves, topleft or top
             } else if (stringBoard == 8) {
                 console.log('line');
                 return "0";
+            }
+        }
+    }
+    // converts topmid corner to rightmid corner by rotating clockwise by 90 degrees
+    else if (firstMove[0] == 5) {
+        if (stringBoard.length == 8) {
+            let num = stringBoard[6];
+            console.log(num);
+            if (num == 0) {
+                console.log('convert 0 to 2');
+                return board[2];
+            } else if (num == 1) {
+                console.log('convert 1 to 5');
+                return board[5];
+            } else if (num == 2) {
+                console.log('2 to 8');
+                return board[8];
+            } else if (num == 3) {
+                console.log('convert 3 to 1');
+                return board[1];
+            } else if (num == 4) {
+                console.log('convert 4 to 4');
+                return board[4];
+            } else if (num == 5) {
+                console.log('convert 5 to 7');
+                return board[7];
+            } else if (num == 6) {
+                console.log('convert 6 to 0');
+                return board[0];
+            } else if (num == 7) {
+                console.log('convert 7 to 3');
+                return board[3];
+            } else if (num == 8) {
+                console.log('convert 8 to 6');
+                return board[6];
+            }
+        } else if (stringBoard.length == 1) {
+            if (stringBoard == 0) {
+                console.log('line');
+                return "2";
+            } else if (stringBoard == 1) {
+                console.log('line');
+                return "5";
+            } else if (stringBoard == 2) {
+                console.log('line');
+                return "8";
+            } else if (stringBoard == 3) {
+                console.log('line');
+                return "1";
+            } else if (stringBoard == 4) {
+                console.log('line');
+                return "4";
+            } else if (stringBoard == 5) {
+                console.log('line');
+                return "7";
+            } else if (stringBoard == 6) {
+                console.log('line');
+                return "0";
+            } else if (stringBoard == 7) {
+                console.log('line');
+                return "3";
+            } else if (stringBoard == 8) {
+                console.log('line');
+                return "6";
+            }
+        }
+    }
+    // converts topmid corner to botmid corner by rotating clockwise by 180 degrees
+    else if (firstMove[0] == 7) {
+        if (stringBoard.length == 8) {
+            let num = stringBoard[6];
+            console.log(num);
+            if (num == 0) {
+                console.log('convert 0 to 8');
+                return board[8];
+            } else if (num == 1) {
+                console.log('convert 1 to 7');
+                return board[7];
+            } else if (num == 2) {
+                console.log('2 to 6');
+                return board[6];
+            } else if (num == 3) {
+                console.log('convert 3 to 5');
+                return board[5];
+            } else if (num == 4) {
+                console.log('convert 4 to 4');
+                return board[4];
+            } else if (num == 5) {
+                console.log('convert 5 to 3');
+                return board[3];
+            } else if (num == 6) {
+                console.log('convert 6 to 2');
+                return board[2];
+            } else if (num == 7) {
+                console.log('convert 7 to 1');
+                return board[1];
+            } else if (num == 8) {
+                console.log('convert 8 to 0');
+                return board[0];
+            }
+        } else if (stringBoard.length == 1) {
+            if (stringBoard == 0) {
+                console.log('line');
+                return "8";
+            } else if (stringBoard == 1) {
+                console.log('line');
+                return "7";
+            } else if (stringBoard == 2) {
+                console.log('line');
+                return "6";
+            } else if (stringBoard == 3) {
+                console.log('line');
+                return "5";
+            } else if (stringBoard == 4) {
+                console.log('line');
+                return "4";
+            } else if (stringBoard == 5) {
+                console.log('line');
+                return "3";
+            } else if (stringBoard == 6) {
+                console.log('line');
+                return "2";
+            } else if (stringBoard == 7) {
+                console.log('line');
+                return "1";
+            } else if (stringBoard == 8) {
+                console.log('line');
+                return "0";
+            }
+        }
+    }
+    // converts topmid corner to midleft corner by rotating counterclockwise by 90 degrees
+    else if (firstMove[0] == 3) {
+        if (stringBoard.length == 8) {
+            let num = stringBoard[6];
+            console.log(num);
+            if (num == 0) {
+                console.log('convert 0 to 6');
+                return board[6];
+            } else if (num == 1) {
+                console.log('convert 1 to 3');
+                return board[3];
+            } else if (num == 2) {
+                console.log('2 to 0');
+                return board[0];
+            } else if (num == 3) {
+                console.log('convert 3 to 7');
+                return board[7];
+            } else if (num == 4) {
+                console.log('convert 4 to 4');
+                return board[4];
+            } else if (num == 5) {
+                console.log('convert 5 to 1');
+                return board[1];
+            } else if (num == 6) {
+                console.log('convert 6 to 8');
+                return board[8];
+            } else if (num == 7) {
+                console.log('convert 7 to 5');
+                return board[5];
+            } else if (num == 8) {
+                console.log('convert 8 to 2');
+                return board[2];
+            }
+        } else if (stringBoard.length == 1) {
+            if (stringBoard == 0) {
+                console.log('line');
+                return "6";
+            } else if (stringBoard == 1) {
+                console.log('line');
+                return "3";
+            } else if (stringBoard == 2) {
+                console.log('line');
+                return "0";
+            } else if (stringBoard == 3) {
+                console.log('line');
+                return "7";
+            } else if (stringBoard == 4) {
+                console.log('line');
+                return "4";
+            } else if (stringBoard == 5) {
+                console.log('line');
+                return "1";
+            } else if (stringBoard == 6) {
+                console.log('line');
+                return "8";
+            } else if (stringBoard == 7) {
+                console.log('line');
+                return "5";
+            } else if (stringBoard == 8) {
+                console.log('line');
+                return "2";
             }
         }
     }
@@ -731,9 +929,99 @@ const converttRIC = (stringBoard) => {
             convert("topleft");
         }
     }
+    else if (firstMove[0] == '5'){ // rightmid start
+        if (num == 0) {
+            console.log('convert 0 to 2');
+            convert("topright");
+        } else if (num == 1) {
+            console.log('convert 1 to 5');
+            convert("midright")
+        } else if (num == 2) {
+            console.log('2 to 8');
+            convert("botright");
+        } else if (num == 3) {
+            console.log('convert 3 to 1');
+            convert('topmid')
+        } else if (num == 4) {
+            console.log('convert 4 to 4');
+            convert("midmid");
+        } else if (num == 5) {
+            console.log('convert 5 to 7');
+            convert('botmid');
+        } else if (num == 6) {
+            console.log('convert 6 to 0');
+            convert("topleft");
+        } else if (num == 7) {
+            console.log('convert 7 to 3');
+            convert('midleft');
+        } else if (num == 8) {
+            console.log('convert 8 to 6');
+            convert("botleft");
+        }
+    }
+    else if (firstMove[0] == '7'){ // botmid start
+        if (num == 0) {
+            console.log('convert 0 to 8');
+            convert("botright");
+        } else if (num == 1) {
+            console.log('convert 1 to 7');
+            convert("botmid")
+        } else if (num == 2) {
+            console.log('2 to 6');
+            convert("botleft");
+        } else if (num == 3) {
+            console.log('convert 3 to 5');
+            convert('midright')
+        } else if (num == 4) {
+            console.log('convert 4 to 4');
+            convert("midmid");
+        } else if (num == 5) {
+            console.log('convert 5 to 3');
+            convert('midleft');
+        } else if (num == 6) {
+            console.log('convert 6 to 2');
+            convert("topright");
+        } else if (num == 7) {
+            console.log('convert 7 to 1');
+            convert('topmid');
+        } else if (num == 8) {
+            console.log('convert 8 to 0');
+            convert("topleft");
+        }
+    }
+    else if (firstMove[0] == '3'){ // midleft start
+        if (num == 0) {
+            console.log('convert 0 to 6');
+            convert("botleft");
+        } else if (num == 1) {
+            console.log('convert 1 to 3');
+            convert("midleft")
+        } else if (num == 2) {
+            console.log('2 to 0');
+            convert("topleft");
+        } else if (num == 3) {
+            console.log('convert 3 to 7');
+            convert('botmid')
+        } else if (num == 4) {
+            console.log('convert 4 to 4');
+            convert("midmid");
+        } else if (num == 5) {
+            console.log('convert 5 to 1');
+            convert('topmid');
+        } else if (num == 6) {
+            console.log('convert 6 to 8');
+            convert("botright");
+        } else if (num == 7) {
+            console.log('convert 7 to 5');
+            convert('rightmid');
+        } else if (num == 8) {
+            console.log('convert 8 to 2');
+            convert("topright");
+        }
+    }
 }
 
-// converts top left corner scenerios to top right by mirroring it
+// set of moves for corner
 const topRightPlaysConvert = () => {
     if (firstMove[0] == tRIC('0')) {
         if (move == 1) { // 2nd move
@@ -936,7 +1224,7 @@ const topRightPlaysConvert = () => {
     }
 }
 
-
+// set of moves for regular board setup for sidemid
 const sideMid = () => {
     if (firstMove[0] == tRIC('1')) {
         if (move == 1) { // 2nd move
